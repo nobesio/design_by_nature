@@ -16,27 +16,33 @@ function House(dna_, position_) {
 
         var genes = this.dna.genes;
 
-        var house_size = map(genes[0],0,1,50,75);
+        var house_size = map(genes[0],0,1,50,90);
         var house_color = color(genes[1],genes[2],genes[3]);
 
-        var window_x        = map(genes[4],0,1,-25,40);
-        var window_y        = map(genes[5],0,1,-25,25);
+        var window_x        = map(genes[4],0,1,-40,0);
+        var window_y        = map(genes[5],0,1,-25,0);
         var window_size     = map(genes[6],0,1,0,25);
         var window_color     = color(genes[7],genes[8],genes[9]);
 
         var roof_x1        = map(genes[10],0,1,-50,-25);
-        var roof_y1        = map(genes[11],0,1,-25,-0);
-        var roof_x2        = map(genes[12],0,1,-15,15);
-        var roof_y2        = map(genes[13],0,1,-45,-50);
+        var roof_y1        = map(genes[11],0,1,-25,0);
+        var roof_x2        = map(genes[12],0,1,-25,25);
+        var roof_y2        = map(genes[13],0,1,-25,-50);
         var roof_x3        = map(genes[14],0,1,25,50);
         var roof_y3        = map(genes[15],0,1,-25,0);
         var roof_color     = color(genes[16],genes[17],genes[18]);
 
-        var door_x        = map(genes[19],0,1,-25,0);
-        var door_y        = map(genes[20],0,1,0,30);
+        var door_x        = map(genes[19],0,1,-25,25);
+        var door_y        = map(genes[20],0,1,25,40);
         var door_w        = map(genes[21],0,1,10,25);
         var door_h        = map(genes[22],0,1,10,30);
         var door_color    = color(genes[23],genes[24],genes[25]);
+        
+        var chimney_x        = map(genes[26],0,1,-50,50);
+        var chimney_y        = map(genes[27],0,1,-40,0);
+        var chimney_w        = map(genes[28],0,1,5,15);
+        var chimney_h        = map(genes[29],0,1,5,20);
+        var chimney_color    = color(genes[30],genes[31],genes[32]);
 
         push();
 
@@ -58,6 +64,10 @@ function House(dna_, position_) {
 
         fill(roof_color);
         triangle(roof_x1, roof_y1, roof_x2, roof_y2, roof_x3, roof_y3);
+        
+        fill(chimney_color);
+        rectMode(CENTER);
+        rect(chimney_x, chimney_y, chimney_w, chimney_h);
 
         // Draw the bounding box
         stroke(0.25);
